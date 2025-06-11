@@ -102,3 +102,11 @@ for (let i = 0; i < 4; i++) {
 
 let equalsButton = document.querySelector('.button-equals');
 equalsButton.addEventListener('click', () => {operate();})
+
+let clearButton = document.querySelector('.button-clear');
+clearButton.addEventListener('click', () => {
+  num1 = '';
+  operator = '';
+  num2 = '';
+  populateDisplay();
+})
