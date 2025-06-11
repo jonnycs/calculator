@@ -37,7 +37,12 @@ function operate() {
       break;
   }
   display.textContent = result;
+  if (operator === '') {
   num1 = '';
+  }
+  else {
+    num1 = result;
+  }
   num2 = '';
   operator = '';
 }
