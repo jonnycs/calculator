@@ -1,37 +1,46 @@
-function add(num1, num2) {
-  return num1 + num2;
+let result;
+
+function add() {
+  result = Number(num1) + Number(num2);
 }
 
-function subtract(num1, num2) {
-  return num1 - num2;
+function subtract() {
+  result = Number(num1) - Number(num2);
 }
 
-function multiply(num1, num2) {
-  return num1 * num2;
+function multiply() {
+  result = Number(num1) * Number(num2);
 }
 
-function divide(num1, num2) {
-  return num1 / num2;
+function divide() {
+  result = Number(num1) / Number(num2);
 }
 
 let num1 = '';
 let num2 = '';
 let operator = '';
+let display = document.querySelector('.display');
 
-function operate(num1, operator, num2) {
+function operate() {
   switch (operator) {
     case '+':
-      return add(num1, num2);
+      add();
+      break;
     case '-':
-      return subtract(num1, num2);
+      subtract();
+      break;
     case '*':
-      return multiply(num1, num2);
+      multiply();
+      break;
     case '/':
-      return divide(num1, num2);
+      divide();
+      break;
   }
+  display.textContent = result;
+  num1 = '';
+  num2 = '';
+  operator = '';
 }
-
-let display = document.querySelector('.display');
 
 function populateDisplay() {
   display.textContent = num1 + ' ' + operator + ' ' + num2;
@@ -50,13 +59,13 @@ function updateDisplay(updateNum) {
   else {
     num2 += updateNum;
   }
-
   populateDisplay();
 }
 
-populateDisplay(num1, operator, num2);
+populateDisplay();
 
 let zeroButton = document.querySelector('.button-0');
+
 zeroButton.addEventListener('click', () => {
   // Update display only if 0 is not the first number input.
   if (num1 !== '' && operator === '') {
@@ -90,3 +99,6 @@ for (let i = 0; i < 4; i++) {
   }
 })
 }
+
+let equalsButton = document.querySelector('.button-equals');
+equalsButton.addEventListener('click', () => {operate();})
