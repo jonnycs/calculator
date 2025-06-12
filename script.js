@@ -124,7 +124,20 @@ subtractButton.addEventListener('click', () => {
 })
 
 let equalsButton = document.querySelector('.button-equals');
-equalsButton.addEventListener('click', () => {operate();})
+equalsButton.addEventListener('click', () => {
+  if (num1 !== '' && operator === '') {
+    result = num1;
+    display.textContent = result;
+  }
+  else if (num1 !== '' & operator !== '') {
+    num1 = '';
+    operator = '';
+    populateDisplay();
+  }
+  else {
+    operate();
+  }
+})
 
 let clearButton = document.querySelector('.button-clear');
 clearButton.addEventListener('click', () => {
