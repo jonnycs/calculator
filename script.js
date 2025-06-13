@@ -2,23 +2,29 @@ let result;
 
 function add() {
   result = Number(num1) + Number(num2);
+  if (Number.isInteger(result) === false) {
+    result = Number(result.toFixed(4));
+  }
 }
 
 function subtract() {
   result = Number(num1) - Number(num2);
+  if (Number.isInteger(result) === false) {
+    result = Number(result.toFixed(4));
+  }
 }
 
 function multiply() {
   result = Number(num1) * Number(num2);
-}
-
-function divide() {
-  // Round result to 4 decimal places.
   if (Number.isInteger(result) === false) {
     result = Number(result.toFixed(4));
   }
-  else {
-    result = Number(num1) / Number(num2);
+}
+
+function divide() {
+  result = Number(num1) / Number(num2);
+  if (Number.isInteger(result) === false) {
+    result = Number(result.toFixed(4));
   }
 }
 
