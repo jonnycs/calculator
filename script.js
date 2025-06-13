@@ -114,7 +114,7 @@ subtractButton.addEventListener('click', () => {
   if (num1 === '') {
     num1 += '-'
   }
-  else if (num1 !== '' && operator !== '') {
+  else if (num1 !== '' && operator !== '' && operator !== '-') {
     num2 += '-';
   }
   else {
