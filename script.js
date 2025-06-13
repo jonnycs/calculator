@@ -66,17 +66,29 @@ function populateDisplay() {
 }
 
 function updateDisplay(updateNum) {
-  if (operator === '' && num1 === '') {
+  // Handle num1 input.
+  if (num1 === '') {
     num1 = updateNum;
   }
   else if (operator === '') {
-    num1 += updateNum;
+    if (num1 !== '0' || updateNum === '.') {
+      num1 += updateNum;
+    }
+    else if (num1 === '0') {
+      num1 = updateNum;
+    }
   }
-  else if (num2 === '') {
-    num2 = updateNum;
-  }
-  else {
-    num2 += updateNum;
+  // Handle num2 input
+  if (operator !== '') {
+    if (num2 === '') {
+      num2 = updateNum;
+    }
+    else if (num2 !== '0' || updateNum === '.') {
+      num2 += updateNum;
+    }
+    else if (num2 === '0') {
+      num2 = updateNum;
+    }
   }
   populateDisplay();
 }
@@ -86,11 +98,10 @@ populateDisplay();
 let zeroButton = document.querySelector('.button-0');
 
 zeroButton.addEventListener('click', () => {
-  // Update display only if 0 is not the first number input.
-  if (num1 !== '' && operator === '') {
+  if (num1 !== '0' && operator === '' && num2 === '') {
     updateDisplay('0');
   }
-  else if (num2 !== '') {
+  else if (num1 !== '' && operator !== '' && num2 !== '0') {
     updateDisplay('0');
   }
 })
@@ -157,4 +168,17 @@ clearButton.addEventListener('click', () => {
   operator = '';
   num2 = '';
   populateDisplay();
+})
+
+let decimalButton = document.querySelector('.button-decimal');
+decimalButton.addEventListener('click', () => {
+  if (num1 === '') {
+    updateDisplay('0.');
+  }
+  else if (num1.includes('.') === false && num2 === '') {
+    updateDisplay('.');
+  }
+  else if (num1 !== '' && operator !== '' && num2.includes('.') === false) {
+        updateDisplay('.');
+  }
 })
