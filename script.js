@@ -61,8 +61,17 @@ function operate() {
   operator = '';
 }
 
+let i = 0;
+
 function populateDisplay() {
+  // Display 0 on initial load, then increment i to prevent repeat.
+  if (i === 0) {
+    display.textContent = '0';
+    i++;
+  }
+  else {
   display.textContent = num1 + ' ' + operator + ' ' + num2;
+  }
 }
 
 function updateDisplay(updateNum) {
