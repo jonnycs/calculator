@@ -129,7 +129,7 @@ equalsButton.addEventListener('click', () => {
     result = num1;
     display.textContent = result;
   }
-  else if (num1 !== '' & operator !== '') {
+  else if (num1 !== '' && operator !== '' && num2 === '') {
     num1 = '';
     operator = '';
     populateDisplay();
