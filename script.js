@@ -120,21 +120,21 @@ zeroButton.addEventListener('click', () => {
   }
 })
 
-let digits = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+let digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 let currentButton;
 
 // Add event listeners to the digit buttons.
-for (let i = 0; i < 9; i++) {
+for (let i = 1; i < 10; i++) {
   currentButton = document.querySelector(`.button-${digits[i]}`);
   currentButton.addEventListener('click', () => {updateDisplay(`${digits[i]}`)})
 }
 
-let operatorNames = ['add', 'multiply', 'divide']
-let operators = ['+', '*', '/']
+let operatorNames = ['decimal', 'add', 'multiply', 'divide']
+let operators = ['.', '-', '+', '*', '/']
 
 // Add event listeners to all operator buttons, except subtract.
-for (let i = 0; i < 3; i++) {
+for (let i = 2; i < 3; i++) {
   currentButton = document.querySelector(`.button-${operatorNames[i]}`);
   currentButton.addEventListener('click', () => {
     // Allow operator input only after num1 is set and before num2 is entered.
@@ -195,5 +195,42 @@ decimalButton.addEventListener('click', () => {
   }
   else if (num1 !== '' && operator !== '' && num2.includes('.') === false) {
         updateDisplay('.');
+  }
+})
+
+document.addEventListener('keydown', (event) => {
+  // Handle digit, operator and decimal key presses.
+  if (digits.includes(event.key) || operators.includes(event.key)) {
+    if (operator ===  '' && digits.includes(event.key)) {
+      num1 += event.key;
+    }
+    else if (event.key === '.') {
+      if (operator === '' && num1.includes('.') === false) {
+        // Handle decimal input for num1.
+        if (num1 === '') {
+          num1 = '0.';
+        }
+        else {
+        num1 += event.key;
+        }
+      }
+      // Handle decimal input for num2.
+      else if (operator !== '' && num2.includes('.') === false) {
+        if (num2 === '') {
+          num2 = '0.';
+        }
+        else {
+        num2 += event.key;
+        }
+      }
+    }
+    else if (num1 !== '' && operators.includes(event.key)) {
+        operator = '';
+        operator += event.key;
+    }
+    else if (operator !== '' && digits.includes(event.key)) {
+      num2 += event.key;
+    }
+    populateDisplay();
   }
 })
