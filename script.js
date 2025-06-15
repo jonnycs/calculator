@@ -130,17 +130,18 @@ for (let i = 1; i < 10; i++) {
   currentButton.addEventListener('click', () => {updateDisplay(`${digits[i]}`)})
 }
 
-let operatorNames = ['decimal', 'add', 'multiply', 'divide']
-let operators = ['.', '-', '+', '*', '/']
+let operatorNames = ['add', 'multiply', 'divide', 'decimal', 'subtract']
+let operators = ['+', '*', '/', '.', '-']
 
 // Add event listeners to all operator buttons, except subtract.
-for (let i = 2; i < 3; i++) {
+for (let i = 0; i < 3; i++) {
   currentButton = document.querySelector(`.button-${operatorNames[i]}`);
   currentButton.addEventListener('click', () => {
     // Allow operator input only after num1 is set and before num2 is entered.
     if (num1 !== '' && num2 === '') {
+      operator = '';
       operator = `${operators[i]}`;
-      updateDisplay('');
+      populateDisplay();
     }
 })
 }
@@ -148,6 +149,7 @@ for (let i = 2; i < 3; i++) {
 let subtractButton = document.querySelector('.button-subtract');
 subtractButton.addEventListener('click', () => {
   // Allow the user to input a negative number or use the subtraction operator.
+  operator = '';
   if (num1 === '') {
     num1 += '-'
   }
