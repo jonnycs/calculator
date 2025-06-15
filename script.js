@@ -164,7 +164,13 @@ subtractButton.addEventListener('click', () => {
 
 let equalsButton = document.querySelector('.button-equals');
 equalsButton.addEventListener('click', () => {
-  if (num1 !== '' && operator === '') {
+  if (num1 === '') {
+    display.textContent = '0';
+  }
+  else if (num1 !== '' && operator !== '' && num2 === '') {
+    display.textContent = num1;
+  }
+  else if (num1 !== '' && operator === '') {
     result = num1;
     display.textContent = result;
   }
@@ -204,7 +210,13 @@ decimalButton.addEventListener('click', () => {
 document.addEventListener('keydown', (event) => {
   // If equals or enter is pushed display operation result.
   if (event.key === '=' || event.key === 'Enter') {
-    if (num1 !== '' && operator === '') {
+    if (num1 === '') {
+      display.textContent = '0';
+    }
+    else if (num1 !== '' && operator !== '' && num2 === '') {
+      display.textContent = num1;
+    }
+    else if (num1 !== '' && operator === '') {
     // If only first number is entered display it as the result.
     result = num1;
     display.textContent = result;
