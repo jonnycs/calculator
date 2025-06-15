@@ -1,6 +1,8 @@
 let result;
+let equation = document.querySelector('.display-equation');
 
 function add() {
+  equation.textContent = num1 + ' ' + operator + ' ' + num2;
   result = Number(num1) + Number(num2);
   if (Number.isInteger(result) === false) {
     result = Number(result.toFixed(4));
@@ -8,6 +10,7 @@ function add() {
 }
 
 function subtract() {
+  equation.textContent = num1 + ' ' + operator + ' ' + num2;
   result = Number(num1) - Number(num2);
   if (Number.isInteger(result) === false) {
     result = Number(result.toFixed(4));
@@ -15,6 +18,7 @@ function subtract() {
 }
 
 function multiply() {
+  equation.textContent = num1 + ' ' + operator + ' ' + num2;
   result = Number(num1) * Number(num2);
   if (Number.isInteger(result) === false) {
     result = Number(result.toFixed(4));
@@ -22,6 +26,7 @@ function multiply() {
 }
 
 function divide() {
+  equation.textContent = num1 + ' ' + operator + ' ' + num2;
   result = Number(num1) / Number(num2);
   if (Number.isInteger(result) === false) {
     result = Number(result.toFixed(4));
@@ -176,7 +181,8 @@ clearButton.addEventListener('click', () => {
   num1 = '';
   operator = '';
   num2 = '';
-  populateDisplay();
+  display.textContent = '0';
+  equation.textContent = '';
 })
 
 let decimalButton = document.querySelector('.button-decimal');
