@@ -74,6 +74,9 @@ function populateDisplay() {
     display.textContent = '0';
     i++;
   }
+  else if (num1 === '') {
+    display.textContent = '0';
+  }
   else {
   display.textContent = num1 + ' ' + operator + ' ' + num2;
   }
@@ -229,6 +232,27 @@ document.addEventListener('keydown', (event) => {
   else {
     operate();
   }
+  }
+  // Handle clear button key press when 'c' is pressed.
+  if (event.key === 'c') {
+    num1 = '';
+    operator = '';
+    num2 = '';
+    display.textContent = '0';
+    equation.textContent = '';
+  }
+  // Handle back space key presses.
+  if (event.key === 'Backspace') {
+    if (num1 !== '' && operator === '' && num2 === '') {
+      num1 = num1.slice(0, -1);
+    }
+    else if (num1 !== '' && operator !== '' && num2 === '') {
+      operator = operator.slice(0, -1);
+    }
+    else if (num1 !== '' && operator !== '' && num2 !== '') {
+      num2 = num2.slice(0, -1);
+    }
+    populateDisplay();
   }
   // Handle digit, operator and decimal key presses.
   else if (digits.includes(event.key) || operators.includes(event.key)) {
