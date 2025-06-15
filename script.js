@@ -198,9 +198,26 @@ decimalButton.addEventListener('click', () => {
   }
 })
 
+// Handle key presses.
 document.addEventListener('keydown', (event) => {
+  // If equals or enter is pushed display operation result.
+  if (event.key === '=' || event.key === 'Enter') {
+    if (num1 !== '' && operator === '') {
+    // If only first number is entered display it as the result.
+    result = num1;
+    display.textContent = result;
+  }
+  else if (num1 !== '' && operator !== '' && num2 === '') {
+    num1 = '';
+    operator = '';
+    populateDisplay();
+  }
+  else {
+    operate();
+  }
+  }
   // Handle digit, operator and decimal key presses.
-  if (digits.includes(event.key) || operators.includes(event.key)) {
+  else if (digits.includes(event.key) || operators.includes(event.key)) {
     if (operator ===  '' && digits.includes(event.key)) {
       num1 += event.key;
     }
@@ -224,7 +241,7 @@ document.addEventListener('keydown', (event) => {
         }
       }
     }
-    else if (num1 !== '' && operators.includes(event.key)) {
+    else if (num1 !== '' && num2 === '' && operators.includes(event.key)) {
         operator = '';
         operator += event.key;
     }
