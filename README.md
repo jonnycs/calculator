@@ -6,11 +6,12 @@
 - Clear button functionality
 - Keyboard and mouse input
 
-## Tech used
+## Tech Used
 - HTML
 - CSS
 - JavaScript
 
-## 🔗 Try the live demo: https://jonnycs.github.io/calculator/
+## 🔗 Live Demo
+Try it out here: https://jonnycs.github.io/calculator/
 
 **Built while studying [The Odin Project](https://www.theodinproject.com/) curriculum**

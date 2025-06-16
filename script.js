@@ -27,10 +27,15 @@ function multiply() {
 
 function divide() {
   equation.textContent = num1 + ' ' + operator + ' ' + num2;
+  if (num1 === '0' || num2 === '0') {
+    result = '<a href="https://i.kym-cdn.com/photos/images/newsfeed/000/341/743/f25.jpg">Error</a>';
+  }
+else {
   result = Number(num1) / Number(num2);
   if (Number.isInteger(result) === false) {
     result = Number(result.toFixed(4));
   }
+}
 }
 
 let num1 = '';
@@ -53,10 +58,15 @@ function operate() {
       divide();
       break;
   }
+  if (result === '<a href="https://i.kym-cdn.com/photos/images/newsfeed/000/341/743/f25.jpg">Error</a>'){
+    display.innerHTML = result;
+  }
+  else {
   display.textContent = result;
+  }
   // If an operator was previously used, carry over the result as num1 for the next calculation.
   // Otherwise, reset num1 to an empty string.
-  if (operator === '') {
+  if (operator === '' || display.innerHTML === '<a href="https://i.kym-cdn.com/photos/images/newsfeed/000/341/743/f25.jpg">Error</a>') {
   num1 = '';
   }
   else {
@@ -257,7 +267,15 @@ document.addEventListener('keydown', (event) => {
   // Handle digit, operator and decimal key presses.
   else if (digits.includes(event.key) || operators.includes(event.key)) {
     if (operator ===  '' && digits.includes(event.key)) {
-      num1 += event.key;
+      // Stop num1 from starting with multiple zeros.
+      if (display.textContent !== '0' && event.key === '0') {
+      }
+      else if (num1 === '0' && event.key !== '0') {
+        num1 = event.key;
+      }
+      else {
+        num1 += event.key;
+      }
     }
     else if (event.key === '.') {
       if (operator === '' && num1.includes('.') === false) {
@@ -284,7 +302,13 @@ document.addEventListener('keydown', (event) => {
         operator += event.key;
     }
     else if (operator !== '' && digits.includes(event.key)) {
-      num2 += event.key;
+      if (num2 === '0' && event.key === '0') {}
+      else if (num2 === '0' && event.key !== '0') {
+        num2 = event.key;
+      }
+      else {
+        num2 += event.key;
+      }
     }
     populateDisplay();
   }
