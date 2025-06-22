@@ -28,7 +28,7 @@ function multiply() {
 function divide() {
   equation.textContent = num1 + ' ' + operator + ' ' + num2;
   if (num1 === '0' || num2 === '0') {
-    result = '<a href="https://i.kym-cdn.com/photos/images/newsfeed/000/341/743/f25.jpg">Error</a>';
+    result = '<a href="https://i.kym-cdn.com/photos/images/newsfeed/000/341/743/f25.jpg" target="_blank">Error</a>';
   }
 else {
   result = Number(num1) / Number(num2);
@@ -58,7 +58,7 @@ function operate() {
       divide();
       break;
   }
-  if (result === '<a href="https://i.kym-cdn.com/photos/images/newsfeed/000/341/743/f25.jpg">Error</a>'){
+  if (result === '<a href="https://i.kym-cdn.com/photos/images/newsfeed/000/341/743/f25.jpg" target="_blank">Error</a>'){
     display.innerHTML = result;
   }
   else {
@@ -66,7 +66,7 @@ function operate() {
   }
   // If an operator was previously used, carry over the result as num1 for the next calculation.
   // Otherwise, reset num1 to an empty string.
-  if (operator === '' || display.innerHTML === '<a href="https://i.kym-cdn.com/photos/images/newsfeed/000/341/743/f25.jpg">Error</a>') {
+  if (operator === '' || display.innerHTML === '<a href="https://i.kym-cdn.com/photos/images/newsfeed/000/341/743/f25.jpg" target="_blank">Error</a>') {
   num1 = '';
   }
   else {
@@ -162,14 +162,13 @@ for (let i = 0; i < 3; i++) {
 let subtractButton = document.querySelector('.button-subtract');
 subtractButton.addEventListener('click', () => {
   // Allow the user to input a negative number or use the subtraction operator.
-  operator = '';
   if (num1 === '') {
-    num1 += '-'
+    num1 = '-'
   }
-  else if (num1 !== '' && operator !== '' && operator !== '-') {
-    num2 += '-';
+  else if (num1 !== '' && operator !== '' && num2 === '') {
+    num2 = '-';
   }
-  else {
+  else if (num1 !== '-' && operator !== '-') {
   operator = '-';
   }
   updateDisplay('');
@@ -266,7 +265,18 @@ document.addEventListener('keydown', (event) => {
   }
   // Handle digit, operator and decimal key presses.
   else if (digits.includes(event.key) || operators.includes(event.key)) {
-    if (operator ===  '' && digits.includes(event.key)) {
+    if (event.key === '-') {
+      if (num1.length === 0 && num1 !== '-' && operator === '') {
+        num1 = '-';
+      }
+      else if (num1 !== '-' && operator === '') {
+        operator = '-'
+      }
+      else if (operator !== '' && num2 === '') {
+        num2 = '-'
+      }
+    }
+    else if (operator ===  '' && digits.includes(event.key)) {
       // Stop num1 from starting with multiple zeros.
       if (display.textContent !== '0' && event.key === '0') {
       }
