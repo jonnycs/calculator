@@ -27,23 +27,41 @@ img {
   background-color: lightcoral;
   display: flex;
   height: 500px;
-  width: 500px;
+  width: 515px;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .display {
   width: 450px;
   border: 3px solid #61fe7f;
+  height: 70px;
+  display: flex;
+  flex-grow: 1;
+  margin: 0 10px 0 10px;
+  align-items: center;
+  padding-left: 10px;
 }
 
 .button-pad {
   display: flex;
   flex-wrap: wrap;
+  margin-top: -20px;
 }
 
 .calculator-button {
-  margin: 5px;
+  margin: 10px;
   border: 3px solid #61fe7f;
   display: flex;
   flex: 1 1 20%;
+  height: 55px;
+  width: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+#equals-button {
+  margin: -20px 10px 0 10px;
+  height: 70px;
 }
