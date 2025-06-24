@@ -38,7 +38,8 @@ img {
   justify-content: center;
   border: 6px solid #61fe7f;
   padding: 10px;
-  justify-self: center;  margin-top: 40px;
+  justify-self: center;
+  margin-top: 40px;
   flex-grow: 1;
   margin-top: 90px;
 }

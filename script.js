@@ -73,6 +73,7 @@ function operate() {
   else {
     num1 = result;
   }
+  num1 = ''
   num2 = '';
   operator = '';
 }
