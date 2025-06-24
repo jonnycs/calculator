@@ -24,13 +24,15 @@ img {
 }
 
 .content {
-  background-color: lightcoral;
+  background-color: black;
   display: flex;
-  height: 500px;
-  width: 515px;
+  height: 515px;
+  width: 530px;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  border: 6px solid #61fe7f;
+  padding: 10px;
 }
 
 .display {
@@ -42,6 +44,7 @@ img {
   margin: 0 10px 0 10px;
   align-items: center;
   padding-left: 10px;
+  background-color: #61fe7e63;
 }
 
 .button-pad {
@@ -59,9 +62,16 @@ img {
   width: 20px;
   justify-content: center;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 #equals-button {
   margin: -20px 10px 0 10px;
   height: 70px;
+}
+
+.display,
+.calculator-button,
+#equals-button {
+  color: #61fe7f;
 }
