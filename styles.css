@@ -1,4 +1,3 @@
-/* style.css */
 @import url("https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.css");
 
 :root {
@@ -22,4 +21,29 @@ h1, h2, h3, h4, h5 {
 img {
   display: block;
   max-inline-size: 100%;
+}
+
+.content {
+  background-color: lightcoral;
+  display: flex;
+  height: 500px;
+  width: 500px;
+  flex-wrap: wrap;
+}
+
+.display {
+  width: 450px;
+  border: 3px solid #61fe7f;
+}
+
+.button-pad {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.calculator-button {
+  margin: 5px;
+  border: 3px solid #61fe7f;
+  display: flex;
+  flex: 1 1 20%;
 }
