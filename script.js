@@ -244,7 +244,7 @@ document.addEventListener('keydown', (event) => {
   }
   }
   // Handle clear button key press when 'c' is pressed.
-  if (event.key === 'c') {
+  if (event.key === 'c' || event.key === 'C') {
     num1 = '';
     operator = '';
     num2 = '';
