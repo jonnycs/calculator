@@ -25,7 +25,7 @@ img {
 
 * {
   font-family: 'Orbitron';
-  background-color: rgb(33, 33, 33);
+  background-color: #181818;
 }
 
 .content {
@@ -38,6 +38,9 @@ img {
   justify-content: center;
   border: 6px solid #61fe7f;
   padding: 10px;
+  /* justify-self: center; */
+  margin-top: 40px;
+  flex-grow: 1;
 }
 
 .display {
@@ -50,6 +53,7 @@ img {
   align-items: center;
   padding-left: 10px;
   background-color: #61fe7e63;
+  flex-wrap: wrap;
 }
 
 .button-pad {
@@ -84,4 +88,18 @@ img {
 
 .calculator-button:hover {
   background-color: rgba(255, 255, 255, 0.117);
+}
+
+.display-equation {
+  display: flex;
+  flex-basis: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 9.345px;
+  margin-top: -8px;
+}
+.display-result {
+  display: flex;
+  font-size: 17px;
+  background-color: rgba(255, 255, 255, 0);
+  margin-top: -25px;
 }

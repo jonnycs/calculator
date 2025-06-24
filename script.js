@@ -1,4 +1,5 @@
 let result;
+let displayResult = document.querySelector('.display-result');
 let equation = document.querySelector('.display-equation');
 
 function add() {
@@ -62,7 +63,7 @@ function operate() {
     display.innerHTML = result;
   }
   else {
-  display.textContent = result;
+  displayResult.textContent = result;
   }
   // If an operator was previously used, carry over the result as num1 for the next calculation.
   // Otherwise, reset num1 to an empty string.
@@ -81,14 +82,14 @@ let i = 0;
 function populateDisplay() {
   // Display 0 on initial load, then increment i to prevent repeat.
   if (i === 0) {
-    display.textContent = '0';
+    displayResult.textContent = '0';
     i++;
   }
   else if (num1 === '') {
-    display.textContent = '0';
+    displayResult.textContent = '0';
   }
   else {
-  display.textContent = num1 + ' ' + operator + ' ' + num2;
+    displayResult.textContent = num1 + ' ' + operator + ' ' + num2;
   }
 }
 
@@ -177,14 +178,14 @@ subtractButton.addEventListener('click', () => {
 let equalsButton = document.querySelector('.button-equals');
 equalsButton.addEventListener('click', () => {
   if (num1 === '') {
-    display.textContent = '0';
+    displayResult.textContent = '0';
   }
   else if (num1 !== '' && operator !== '' && num2 === '') {
-    display.textContent = num1;
+    displayResult.textContent = num1;
   }
   else if (num1 !== '' && operator === '') {
     result = num1;
-    display.textContent = result;
+    displayResult.textContent = result;
   }
   else if (num1 !== '' && operator !== '' && num2 === '') {
     num1 = '';
@@ -201,7 +202,7 @@ clearButton.addEventListener('click', () => {
   num1 = '';
   operator = '';
   num2 = '';
-  display.textContent = '0';
+  displayResult.textContent = '0';
   equation.textContent = '';
 })
 
@@ -223,15 +224,15 @@ document.addEventListener('keydown', (event) => {
   // If equals or enter is pushed display operation result.
   if (event.key === '=' || event.key === 'Enter') {
     if (num1 === '') {
-      display.textContent = '0';
+      displayResult.textContent = '0';
     }
     else if (num1 !== '' && operator !== '' && num2 === '') {
-      display.textContent = num1;
+      displayResult.textContent = num1;
     }
     else if (num1 !== '' && operator === '') {
     // If only first number is entered display it as the result.
     result = num1;
-    display.textContent = result;
+    displayResult.textContent = result;
   }
   else if (num1 !== '' && operator !== '' && num2 === '') {
     num1 = '';
@@ -247,7 +248,7 @@ document.addEventListener('keydown', (event) => {
     num1 = '';
     operator = '';
     num2 = '';
-    display.textContent = '0';
+    displayResult.textContent = '0';
     equation.textContent = '';
   }
   // Handle back space key presses.
