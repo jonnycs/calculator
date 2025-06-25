@@ -1,4 +1,4 @@
-### 🧮 Calculator App
+### 📟 Hacker Calculator
 
 ## Features
 - Addition, subtraction, multiplication and division operations
@@ -14,4 +14,4 @@
 ## 🔗 Live Demo
 Try it out here: https://jonnycs.github.io/calculator/
 
-**Built while studying [The Odin Project](https://www.theodinproject.com/) curriculum**
+### **Built while studying [The Odin Project](https://www.theodinproject.com/) curriculum** 
