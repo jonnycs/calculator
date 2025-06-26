@@ -155,10 +155,9 @@ body {
   .content {
     width: 330px;
     height: 470px;
-    top: 22vh;
+    top: 14vh;
     left: 5vh;
     transform: translate(0%, 0%);
-
   }
 
   .display {
