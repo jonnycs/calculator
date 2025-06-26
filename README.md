@@ -1,4 +1,4 @@
-### 📟 Hacker Calculator
+### 🧮 Calculator
 
 ## Features
 - Addition, subtraction, multiplication and division operations
