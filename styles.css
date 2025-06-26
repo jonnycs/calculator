@@ -47,6 +47,12 @@ body, html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: box-shadow 0.35s ease-in-out;
+
+}
+
+.content:hover {
+  box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.415);
 }
 
 .display {
